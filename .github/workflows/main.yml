@@ -1,24 +1,4 @@
-name: GoRest CI Pipeline
-
-on: [push, pull_request]
-
-jobs:
-  api-testing:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      - name: Install Newman
-        run: npm install -g newman
-
       - name: Run tests
         run: |
-          newman run "2474802010047_MaiVanBinh_GoRest.postman_collection (1).json" \
-            -e "2474802010047_MaiVanBinh_GoRest_Env.postman_environment.json"
+          ls -la
+          newman run *postman_collection*.json -e *postman_environment*.json
